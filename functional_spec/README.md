@@ -33,7 +33,7 @@ functional_spec $
 
 You can run the full suite from `parking_lot` by doing
 ```
-parking_lot $ bin/run_functional_specs
+parking_lot $ bin/run_functional_tests
 ```
 
 You can run the full suite directly from `parking_lot/functional_spec` by doing
