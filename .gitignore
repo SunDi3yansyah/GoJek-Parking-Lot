@@ -157,3 +157,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# RSpec
+functional_spec/.rspec_status
