@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 project_bin_dir = File.join(File.dirname(File.expand_path(__FILE__)))
 functional_spec_dir = File.join(project_bin_dir, '..', 'functional_spec')

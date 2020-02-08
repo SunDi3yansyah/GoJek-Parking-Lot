@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
 # Add script to:
 # * Install dependencies
 # * Build/Compile
@@ -5,3 +8,24 @@
 #
 # After this is run, bin/parking_lot
 # should Just Work.
+
+require 'fileutils'
+
+# path to your application root.
+APP_ROOT = File.expand_path('../functional_spec', __dir__)
+
+FileUtils.chdir APP_ROOT do
+  puts '== Install dependencies =='
+  system 'gem install bundler --conservative'
+  system('bundle check') || system('bundle install')
+
+  # TODO
+  puts '== Build/Compile =='
+  system ''
+
+  puts '== Run Test Suit to validate =='
+  system 'bundle exec rake spec:functional'
+end
+
+puts '== Run the `bin/parking_lot` =='
+system "bash #{File.expand_path(__dir__)}/parking_lot"
