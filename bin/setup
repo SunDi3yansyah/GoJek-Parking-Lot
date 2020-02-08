@@ -28,4 +28,4 @@ FileUtils.chdir APP_ROOT do
 end
 
 puts '== Run the `bin/parking_lot` =='
-system "bash #{File.expand_path(__dir__)}/parking_lot"
+system 'bin/parking_lot'
