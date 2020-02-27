@@ -7,7 +7,7 @@ before_script:
   - apt-get update -qy
   - 'echo "gem: --no-ri --no-rdoc --no-document" > ~/.gemrc'
   - gem update --system && gem update
-  - gem install bundler
+  - gem install bundler -v 1.16
 
 test:
   stage: test
