@@ -7,10 +7,12 @@ before_script:
   - apt-get update -qy
   - 'echo "gem: --no-ri --no-rdoc --no-document" > ~/.gemrc'
   - gem update --system && gem update
+  - gem install bundler
 
 test:
   stage: test
   environment:
     name: test
   script:
+    - bin/parking_lot functional_spec/fixtures/file_input.txt
     - bin/run_functional_tests
