@@ -1,0 +1,22 @@
+name: GoJek App
+on: [push]
+jobs:
+  build:
+    name: Build Repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Checkout
+        uses: actions/checkout@master
+
+      - name: Set up Ruby 2.7.0
+        uses: actions/setup-ruby@v1
+        with:
+          version: 2.7.0
+
+      - name: Build and Test
+        run: |
+          'echo "gem: --no-ri --no-rdoc --no-document" > ~/.gemrc'
+          gem update --system && gem update
+          gem install bundler -v 1.16
+          bin/parking_lot functional_spec/fixtures/file_input.txt
+          bin/run_functional_tests

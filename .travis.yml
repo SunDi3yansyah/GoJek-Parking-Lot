@@ -1,0 +1,23 @@
+sudo: false
+dist: xenial
+language: ruby
+rvm:
+  - 2.7.0
+branches:
+  only:
+    - master
+cache: bundler
+before_install:
+  - 'echo "gem: --no-ri --no-rdoc --no-document" > ~/.gemrc'
+  - travis_retry gem update --system
+  - travis_retry gem update
+  - travis_retry gem install bundler -v 1.16
+jobs:
+  include:
+    - stage: Test App
+      name: Test App
+      script:
+        - bin/parking_lot functional_spec/fixtures/file_input.txt
+        - bin/run_functional_tests
+notifications:
+  email: false
