@@ -1,0 +1,16 @@
+image: ruby:2.7.0
+
+stages:
+  - test
+
+before_script:
+  - apt-get update -qy
+  - 'echo "gem: --no-ri --no-rdoc --no-document" > ~/.gemrc'
+  - gem update --system && gem update
+
+test:
+  stage: test
+  environment:
+    name: test
+  script:
+    - bin/run_functional_tests
